@@ -1,5 +1,6 @@
 // Importação de bibliotecas.
 #include <stdio.h>
+#include <stdlib.h>
 
 // função principal.
 int main(){
@@ -12,6 +13,7 @@ int main(){
     // Declara um número inteiro aleatório para o jogo de adivinhação.
     int numerosecreto = 26;
     int tentativas = 1;
+    double pontos = 1000;
 
     // Controlando o número de tentativas.
     while (1) {
@@ -45,11 +47,15 @@ int main(){
             }
 
             tentativas++;
+
+            double pontosperdidos = abs (chute - numerosecreto) / (double)2;
+            pontos = pontos - pontosperdidos;
     }
 
     printf("***********************************\n");
-    printf("*********** Fim do jogo! **********\n");
     printf("* Você conseguiu em %d tentativas *\n", tentativas);
+    printf("* Total de pontos: %.2f  *\n", pontos);
+    printf("*********** Fim do jogo! **********\n");
     printf("***********************************\n");
 
 }
