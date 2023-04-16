@@ -11,12 +11,13 @@ int main(){
 
     // Declara um número inteiro aleatório para o jogo de adivinhação.
     int numerosecreto = 26;
+    int tentativas = 1;
 
     // Controlando o número de tentativas.
-    for (int i = 1; i <= 3; i++) {
+    while (1) {
 
             // Mostra o número de tentativas.
-            printf("Tentativa número %d de %d \n: ",i, 3);
+            printf("Tentativa número %d \n: ", tentativas);
 
             // Recebe um número do usuário.
             printf("Qual é o seu chute? ");
@@ -26,7 +27,6 @@ int main(){
 
             if(chute < 0){
                 printf("Você não pode chutar números negativos! \n");
-                i--;
                 continue;
             }
 
@@ -43,10 +43,13 @@ int main(){
                 printf("Seu chute foi menor que o número secreto.\n");
                     
             }
+
+            tentativas++;
     }
 
-    printf("****************\n");
-    printf("* Fim do jogo! *\n");
-    printf("****************\n");
+    printf("***********************************\n");
+    printf("*********** Fim do jogo! **********\n");
+    printf("* Você conseguiu em %d tentativas *\n", tentativas);
+    printf("***********************************\n");
 
 }
