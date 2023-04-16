@@ -1,6 +1,7 @@
 // Importação de bibliotecas.
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 // função principal.
 int main(){
@@ -11,7 +12,12 @@ int main(){
     printf("*************************************\n");
 
     // Declara um número inteiro aleatório para o jogo de adivinhação.
-    int numerosecreto = 26;
+    int segundos = time(0);
+    srand(segundos);
+    int numeroaleatorio = rand();
+    int numerosecreto = numeroaleatorio % 100;
+
+    // Variáveis de controle de tentativas e pontuação.
     int tentativas = 1;
     double pontos = 1000;
 
@@ -54,7 +60,7 @@ int main(){
 
     printf("***********************************\n");
     printf("* Você conseguiu em %d tentativas *\n", tentativas);
-    printf("* Total de pontos: %.2f  *\n", pontos);
+    printf("****** Total de pontos: %.2f ******\n", pontos);
     printf("*********** Fim do jogo! **********\n");
     printf("***********************************\n");
 
